@@ -1,24 +1,6 @@
 import Message from "./components/Message";
+import { testMessages } from "./data/testMessages";
 import { IMessage } from "./types/types";
-
-// Assuming messages would come in random order - date would be used to sort them
-const testMessages: IMessage[] = [
-	{
-		user: "Petar",
-		message: "Second Message",
-		date: 2,
-	},
-	{
-		user: "John",
-		message: "First Message",
-		date: 1,
-	},
-	{
-		user: "Alice",
-		message: "Third Message",
-		date: 3,
-	},
-];
 
 function App() {
 	const allMessages = [...testMessages].sort(
@@ -33,6 +15,7 @@ function App() {
 					user={item.user}
 					message={item.message}
 					date={item.date}
+					isMe={item.isMe}
 				/>
 			))}
 		</div>
