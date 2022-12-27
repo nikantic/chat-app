@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { testMessages } from "../data/testMessages";
 
 import { requestGET } from "../helpers/requests";
 import { IMessage } from "../types/types";
@@ -6,7 +7,8 @@ import { IMessage } from "../types/types";
 const useLoad = (URL: string) => {
 	const [data, setData] = useState(
 		JSON.parse(localStorage.getItem("chatAppMessages") as string) ||
-			([] as IMessage[])
+			testMessages ||
+			[]
 	);
 
 	useEffect(() => {

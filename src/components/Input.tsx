@@ -6,23 +6,42 @@ import CONFIG from "../data/config";
 const StyledInput = styled.div`
 	display: flex;
 	justify-content: space-between;
+
 	position: fixed;
 	bottom: 0;
-	background: #fff;
 	width: 100%;
 	box-sizing: border-box;
-	padding: 20px;
+	padding: 16px;
+    
+	background: #3898d4;
 
-	> input {
-		width: 100%;
-		padding: 20px;
+	input {
+		border: 3px solid #2e77a4;
+		border-radius: 5px;
+
+        padding: 20px;
 		font-size: 20px;
+		width: 100%;
+        
 	}
 
-	> button {
+	button {
+        font-size: 20px;
+		
+		border: none;
+		border-radius: 5px;
+        background-color: #ff876d;
+		color: #fff;
+        
+        margin-left: 20px;
+		padding: 20px;
 		width: 100px;
-		margin-left: 20px;
 		cursor: pointer;
+
+		&:disabled {
+			background-color: #808080;
+			opacity: 0.5;
+		}
 	}
 `;
 
@@ -55,7 +74,9 @@ const Input = ({ addNewMessage }: { addNewMessage: Function }) => {
 				onChange={handleChange}
 				onKeyDown={(event) => event.key === "Enter" && handleSubmit()}
 			/>
-			<button onClick={handleSubmit}>Submit</button>
+			<button disabled={!text.length} onClick={handleSubmit}>
+				Send
+			</button>
 		</StyledInput>
 	);
 };

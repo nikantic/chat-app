@@ -14,20 +14,36 @@ const StyledLogin = styled.div`
 	padding: 20px;
 
 	border-radius: 3px;
-	border: 1px solid #000;
+	border: 1px solid #d8d8d8;
 
 	input {
-		width: 100%;
-		padding: 20px;
 		font-size: 20px;
+
+		border: 3px solid #2e77a4;
+		border-radius: 5px;
+
+		padding: 20px;
 		box-sizing: border-box;
+		width: 100%;
 	}
 
 	button {
-		width: 100px;
+		font-size: 20px;
+
+		border: none;
+		border-radius: 5px;
+		background-color: #ff876d;
+		color: #fff;
+
 		margin-top: 20px;
 		padding: 20px;
+		width: 100px;
 		cursor: pointer;
+
+		&:disabled {
+			background-color: #808080;
+			opacity: 0.5;
+		}
 	}
 `;
 
@@ -58,7 +74,9 @@ const Login = ({ setLoggedIn }: { setLoggedIn: Function }) => {
 					onChange={handleChange}
 					onKeyDown={(event) => event.key === "Enter" && handleSubmit()}
 				/>
-				<button onClick={handleSubmit}>Submit</button>
+				<button disabled={!text.length} onClick={handleSubmit}>
+					Submit
+				</button>
 			</div>
 		</StyledLogin>
 	);
