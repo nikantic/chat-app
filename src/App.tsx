@@ -21,9 +21,13 @@ const testMessages: IMessage[] = [
 ];
 
 function App() {
+	const allMessages = [...testMessages].sort(
+		(a, b) => a.date - b.date
+	) as IMessage[];
+
 	return (
 		<div>
-			{testMessages.map((item) => (
+			{allMessages.map((item) => (
 				<Message
 					key={item.date}
 					user={item.user}
