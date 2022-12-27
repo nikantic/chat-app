@@ -34,18 +34,21 @@ const Input = ({ addNewMessage }: { addNewMessage: Function }) => {
 	};
 
 	const handleSubmit = () => {
-		addNewMessage({
-			author: CONFIG.USERNAME,
-			message: text,
-			timestamp: new Date().getTime(),
-		});
-		setText("");
+		if (text.length) {
+			addNewMessage({
+				author: CONFIG.USERNAME,
+				message: text,
+				timestamp: new Date().getTime(),
+			});
+			setText("");
+		}
 	};
 
 	return (
 		<StyledInput>
 			<input
 				required
+				placeholder="Message"
 				type="text"
 				name="message"
 				value={text}
