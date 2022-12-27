@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 import { IMessage } from "../types/types";
 import { formatDate } from "../helpers/date";
+import CONFIG from "../data/config";
 
 const StyledMessage = styled.div<{ isMe: boolean }>`
 	background-color: #fff;
@@ -22,15 +23,15 @@ const StyledMessage = styled.div<{ isMe: boolean }>`
 		`};
 `;
 
-const Message = ({ message, date, user, isMe }: IMessage) => {
-	const messageDate = new Date(date);
+const Message = ({ message, timestamp, author }: IMessage) => {
+	const messageDate = new Date(timestamp);
 	const formattedDate = formatDate(messageDate);
 
 	return (
-		<StyledMessage isMe={isMe ? true : false}>
-			<p>Author: {user}</p>
+		<StyledMessage isMe={CONFIG.USERNAME === author ? true : false}>
+			<p>{author}</p>
 			<strong>{message}</strong>
-			<p>Date: {formattedDate}</p>
+			<p>{formattedDate}</p>
 		</StyledMessage>
 	);
 };

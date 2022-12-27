@@ -14,11 +14,10 @@ const List = ({ messages }: { messages: IMessage[] }) => {
 		<StyledList>
 			{messages.map((item) => (
 				<Message
-					key={item.date}
-					user={item.user}
+					key={item.timestamp}
+					author={item.author}
 					message={item.message}
-					date={item.date}
-					isMe={item.isMe}
+					timestamp={item.timestamp}
 				/>
 			))}
 		</StyledList>

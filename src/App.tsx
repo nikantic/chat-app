@@ -4,7 +4,7 @@ import { IMessage } from "./types/types";
 
 function App() {
 	const allMessages = [...testMessages].sort(
-		(a, b) => a.date - b.date
+		(a, b) => a.timestamp - b.timestamp
 	) as IMessage[];
 
 	return (

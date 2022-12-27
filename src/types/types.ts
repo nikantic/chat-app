@@ -1,6 +1,11 @@
 export interface IMessage {
 	message: string;
-	date: number;
-	user: string;
-	isMe?: boolean;
+	timestamp: number;
+	author: string;
+}
+
+export interface IConfig {
+	TOKEN: string;
+	URL: string;
+	USERNAME: string;
 }
