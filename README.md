@@ -4,7 +4,7 @@ Simple chat app with React, TypeScript and Styled Components.
 
 ## Important
 
-Config file with secrets is part of `.gitignore`.  To run app locally you will need to create your own `config.ts` file inside `./src/data` folder with the following - *fetch URL, token and username* (which will be set again on login)
+Config file with secrets is part of `.gitignore`.  To run app locally you will need to create your own `config.ts` file inside `./src/data` folder with the following - *endpoint URL, token and username* (which will be set again on login)
 
 ```ts
 import { IConfig } from "../types/types";
@@ -30,9 +30,9 @@ Expected API endpoint response is array that looks like this example:
 
 ```ts
 [{
-    author: "John Smith";
-	message: "Hello World
-	timestamp: 1672165383685;
+    author: "John Smith",
+	message: "Hello World",
+	timestamp: 1672165383685,
 }]
 ```
 
