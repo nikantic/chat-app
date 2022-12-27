@@ -40,7 +40,6 @@ const Login = ({ setLoggedIn }: { setLoggedIn: Function }) => {
 
 	const handleSubmit = () => {
 		if (text.length) {
-			console.log("handleSubmit in Login", text);
 			CONFIG.USERNAME = text;
 			localStorage.setItem("chatAppUsername", text);
 			setLoggedIn(true);
