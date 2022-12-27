@@ -30,7 +30,7 @@ Expected API endpoint response is array that looks like this example:
 
 ```ts
 [{
-    author: "John Smith",
+	author: "John Smith",
 	message: "Hello World",
 	timestamp: 1672165383685,
 }]
