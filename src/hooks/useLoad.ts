@@ -8,7 +8,7 @@ const useLoad = (URL: string) => {
 	const [data, setData] = useState(
 		JSON.parse(localStorage.getItem("chatAppMessages") as string) ||
 			testMessages ||
-			[]
+			([] as IMessage[])
 	);
 
 	useEffect(() => {

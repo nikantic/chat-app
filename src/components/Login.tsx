@@ -12,9 +12,14 @@ const StyledLogin = styled.div`
 	height: 500px;
 	box-sizing: border-box;
 	padding: 20px;
+	margin: 20px;
 
 	border-radius: 3px;
 	border: 1px solid #d8d8d8;
+
+	h2 {
+		margin-bottom: 10px;
+	}
 
 	input {
 		font-size: 20px;
@@ -64,7 +69,8 @@ const Login = ({ setLoggedIn }: { setLoggedIn: Function }) => {
 
 	return (
 		<StyledLogin>
-			<p>Welcome! Please enter your username to proceed:</p>
+			<h2>Welcome!</h2>
+			<p>Please enter your username to proceed:</p>
 			<div>
 				<input
 					required

@@ -4,6 +4,7 @@ import Home from "./components/Home";
 
 import Login from "./components/Login";
 import CONFIG from "./data/config";
+import background from "./assets/images/bg.png";
 
 CONFIG.USERNAME = localStorage.getItem("chatAppUsername") || "";
 
@@ -17,6 +18,8 @@ const StyledApp = styled.div<{ isLoggedIn: boolean }>`
 
 			width: 100%;
 			height: 100vh;
+
+			background-image: url(${background});
 		`};
 `;
 

@@ -12,7 +12,7 @@ const StyledMessage = styled.div<{ isMe: boolean }>`
 	padding: 16px;
 	margin: 8px 24px;
 
-	border-radius: 3px;
+	border-radius: 5px;
 	border: 1px solid #d8d8d8;
 
 	p {

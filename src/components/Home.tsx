@@ -1,9 +1,19 @@
+import styled from "styled-components";
+
 import List from "./List";
 import Input from "./Input";
 import useLoad from "../hooks/useLoad";
 import { IMessage } from "../types/types";
 import { requestPOST } from "../helpers/requests";
 import CONFIG from "../data/config";
+import background from "../assets/images/bg.png";
+
+const StyledHome = styled.div`
+	display: flex;
+	justify-content: center;
+
+	background-image: url(${background});
+`;
 
 const Home = () => {
 	const messages = useLoad(CONFIG.URL);
@@ -17,10 +27,10 @@ const Home = () => {
 	};
 
 	return (
-		<div>
+		<StyledHome>
 			<List messages={messages.data} />
 			<Input addNewMessage={addNewMessage} />
-		</div>
+		</StyledHome>
 	);
 };
 
