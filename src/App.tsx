@@ -1,4 +1,4 @@
-import Message from "./components/Message";
+import List from "./components/List";
 import { testMessages } from "./data/testMessages";
 import { IMessage } from "./types/types";
 
@@ -9,15 +9,7 @@ function App() {
 
 	return (
 		<div>
-			{allMessages.map((item) => (
-				<Message
-					key={item.date}
-					user={item.user}
-					message={item.message}
-					date={item.date}
-					isMe={item.isMe}
-				/>
-			))}
+			<List messages={allMessages} />
 		</div>
 	);
 }
