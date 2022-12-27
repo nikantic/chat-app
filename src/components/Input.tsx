@@ -33,12 +33,13 @@ const Input = ({ addNewMessage }: { addNewMessage: Function }) => {
 		setText(event.target.value);
 	};
 
-	const handleClick = () => {
+	const handleSubmit = () => {
 		addNewMessage({
 			author: CONFIG.USERNAME,
 			message: text,
 			timestamp: new Date().getTime(),
 		});
+		setText("");
 	};
 
 	return (
@@ -49,9 +50,9 @@ const Input = ({ addNewMessage }: { addNewMessage: Function }) => {
 				name="message"
 				value={text}
 				onChange={handleChange}
-				onKeyDown={(event) => event.key === "Enter" && handleClick()}
+				onKeyDown={(event) => event.key === "Enter" && handleSubmit()}
 			/>
-			<button onClick={handleClick}>Submit</button>
+			<button onClick={handleSubmit}>Submit</button>
 		</StyledInput>
 	);
 };

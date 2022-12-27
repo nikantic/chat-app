@@ -29,9 +29,9 @@ const Message = ({ message, timestamp, author }: IMessage) => {
 
 	return (
 		<StyledMessage isMe={CONFIG.USERNAME === author ? true : false}>
-			<p>{author}</p>
-			<strong>{message}</strong>
-			<p>{formattedDate}</p>
+			<strong>{author}</strong>
+			<p>{message}</p>
+			<small>{formattedDate}</small>
 		</StyledMessage>
 	);
 };

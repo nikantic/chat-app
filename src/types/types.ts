@@ -1,7 +1,7 @@
 export interface IMessage {
+	author: string;
 	message: string;
 	timestamp: number;
-	author: string;
 }
 
 export interface IConfig {
