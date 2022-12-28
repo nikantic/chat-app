@@ -8,6 +8,10 @@ import background from "./assets/images/bg.png";
 
 CONFIG.USERNAME = localStorage.getItem("chatAppUsername") || "";
 
+if (CONFIG.OFFLINE) {
+	console.log("You are running app OFFLINE (using local storage)");
+}
+
 const StyledApp = styled.div<{ isLoggedIn: boolean }>`
 	${({ isLoggedIn }) =>
 		!isLoggedIn &&

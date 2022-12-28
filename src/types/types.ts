@@ -8,4 +8,5 @@ export interface IConfig {
 	TOKEN: string;
 	URL: string;
 	USERNAME: string;
+	OFFLINE: boolean;
 }

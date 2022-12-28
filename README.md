@@ -13,6 +13,7 @@ const CONFIG: IConfig = {
 	TOKEN: "YOUR_AWESOME_UNIQUE_TOKEN",
 	URL: "YOUR_AWESOME_API_ENDPOINT",
 	USERNAME: "",
+    OFFLINE: false, // change to TRUE if you plan to run app locally only
 };
 
 export default CONFIG;

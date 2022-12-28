@@ -23,7 +23,9 @@ const Home = () => {
 		newMessages.push(newMessage);
 		messages.setData(newMessages);
 		localStorage.setItem("chatAppMessages", JSON.stringify(newMessages));
-		requestPOST(CONFIG.URL, newMessage);
+		if (!CONFIG.OFFLINE) {
+			requestPOST(CONFIG.URL, newMessage);
+		}
 	};
 
 	return (

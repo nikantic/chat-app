@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CONFIG from "../data/config";
 import { testMessages } from "../data/testMessages";
 
 import { requestGET } from "../helpers/requests";
@@ -12,7 +13,9 @@ const useLoad = (URL: string) => {
 	);
 
 	useEffect(() => {
-		requestGET(URL).then((response) => setData(response));
+		if (!CONFIG.OFFLINE) {
+			requestGET(URL).then((response) => setData(response));
+		}
 	}, [URL]);
 
 	return {
