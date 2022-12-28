@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import CONFIG from "../data/config";
-import { testMessages } from "../data/testMessages";
 
+import { testMessages } from "../data/testMessages";
+import { sortMessages } from "../helpers/date";
 import { requestGET } from "../helpers/requests";
 import { IMessage } from "../types/types";
+import CONFIG from "../data/config";
 
 const useLoad = (URL: string) => {
 	const [data, setData] = useState(
-		JSON.parse(localStorage.getItem("chatAppMessages") as string) ||
-			testMessages ||
-			([] as IMessage[])
+		sortMessages(
+			JSON.parse(localStorage.getItem("chatAppMessages") as string) ||
+				testMessages ||
+				([] as IMessage[])
+		)
 	);
 
 	useEffect(() => {
