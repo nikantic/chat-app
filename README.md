@@ -1,10 +1,10 @@
 # Chat App
 
-Simple chat app with React, TypeScript and Styled Components.
+Simple chat app with React, TypeScript and Styled Components. Works both online and offline.
 
 ## Important
 
-Config file with secrets is part of `.gitignore`.  To run app locally you will need to create your own `config.ts` file inside `./src/data` folder with the following - *endpoint URL, token and username* (which will be set again on login)
+To run app you will need to create your own `config.ts` file inside `./src/data` folder with the properties you can find in included `config_example.ts`. Your config file is part of  `.gitignore`.  
 
 ```ts
 import { IConfig } from "../types/types";
@@ -18,6 +18,8 @@ const CONFIG: IConfig = {
 export default CONFIG;
 ```
 
+You can run the app offline by simply changing the `OFFLINE` property above. In order to connect online, remote server should have an exposed endpoint working with `TOKEN` header provided in every request (check `./src/helpers/requests.ts` for more).
+
 Then simply run the app with `npm start`
 
 ## Data model
@@ -26,7 +28,7 @@ Types are included in `./data/types.ts`.
 
 Test messages are provided in `./data/testMessages.ts`. 
 
-Expected API endpoint response is array that looks like this example:
+Expected API endpoint response is array with messages that looks like this example:
 
 ```ts
 [{
