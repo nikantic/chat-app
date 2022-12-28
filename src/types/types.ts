@@ -10,3 +10,7 @@ export interface IConfig {
 	USERNAME: string;
 	OFFLINE: boolean;
 }
+
+export interface IContext {
+	LOGOUT: Function;
+}

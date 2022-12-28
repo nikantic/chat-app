@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import Message from "./Message";
 import { IMessage } from "../types/types";
+import LoginInfo from "./LoginInfo";
 
 const StyledList = styled.div`
 	display: flex;
@@ -9,7 +10,7 @@ const StyledList = styled.div`
 	align-items: flex-start;
 
 	min-height: 100vh;
-	padding-bottom: 200px;
+	padding-bottom: 150px;
 	width: 640px;
 	max-width: 100%;
 `;
@@ -25,6 +26,7 @@ const List = ({ messages }: { messages: IMessage[] }) => {
 					timestamp={item.timestamp}
 				/>
 			))}
+			<LoginInfo />
 		</StyledList>
 	);
 };

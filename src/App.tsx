@@ -5,11 +5,12 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import CONFIG from "./data/config";
 import background from "./assets/images/bg.png";
+import AppContext from "./data/context";
 
 CONFIG.USERNAME = localStorage.getItem("chatAppUsername") || "";
 
 if (CONFIG.OFFLINE) {
-	console.log("You are running app OFFLINE (using local storage)");
+	console.log("You are running app in OFFLINE mode (using local storage)");
 }
 
 const StyledApp = styled.div<{ isLoggedIn: boolean }>`
@@ -30,10 +31,18 @@ const StyledApp = styled.div<{ isLoggedIn: boolean }>`
 function App() {
 	const [loggedIn, setLoggedIn] = useState(!!CONFIG.USERNAME);
 
+	const logout = () => {
+		CONFIG.USERNAME = "";
+		localStorage.setItem("chatAppUsername", "");
+		setLoggedIn(false);
+	};
+
 	return (
-		<StyledApp isLoggedIn={loggedIn}>
-			{loggedIn ? <Home /> : <Login setLoggedIn={setLoggedIn} />}
-		</StyledApp>
+		<AppContext.Provider value={{ LOGOUT: logout }}>
+			<StyledApp isLoggedIn={loggedIn}>
+				{loggedIn ? <Home /> : <Login setLoggedIn={setLoggedIn} />}
+			</StyledApp>
+		</AppContext.Provider>
 	);
 }
 
