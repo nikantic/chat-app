@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import styled from "styled-components";
-import CONFIG from "../data/config";
+import AppContext from "../data/context";
 
 const StyledLogin = styled.div`
 	display: flex;
@@ -52,7 +52,8 @@ const StyledLogin = styled.div`
 	}
 `;
 
-const Login = ({ setLoggedIn }: { setLoggedIn: Function }) => {
+const Login = () => {
+	const { login } = useContext(AppContext);
 	const [text, setText] = useState("");
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,9 +62,7 @@ const Login = ({ setLoggedIn }: { setLoggedIn: Function }) => {
 
 	const handleSubmit = () => {
 		if (text.length) {
-			CONFIG.USERNAME = text;
-			localStorage.setItem("chatAppUsername", text);
-			setLoggedIn(true);
+			login(text);
 		}
 	};
 

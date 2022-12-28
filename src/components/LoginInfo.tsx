@@ -1,11 +1,10 @@
 import { useContext } from "react";
 import styled from "styled-components";
 
-import CONFIG from "../data/config";
 import AppContext from "../data/context";
 
 const StyledLoginInfo = styled.div`
-	background: #fff;
+	background-color: rgba(255, 255, 255, 0.5);
 	border-radius: 5px;
 
 	display: flex;
@@ -29,14 +28,14 @@ const StyledLoginInfo = styled.div`
 `;
 
 const LoginInfo = () => {
-	const { LOGOUT } = useContext(AppContext);
+	const { username, logout } = useContext(AppContext);
 
 	return (
 		<StyledLoginInfo>
 			<p>
-				You are logged in as <span className="User">{CONFIG.USERNAME}</span>
+				You are logged in as <span className="User">{username}</span>
 			</p>
-			<span className="Logout" onClick={() => LOGOUT()}>
+			<span className="Logout" onClick={() => logout()}>
 				Logout
 			</span>
 		</StyledLoginInfo>

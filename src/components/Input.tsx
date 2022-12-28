@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import styled from "styled-components";
-import CONFIG from "../data/config";
+import AppContext from "../data/context";
 
 const StyledInput = styled.div`
 	position: fixed;
@@ -52,6 +52,7 @@ const StyledInput = styled.div`
 `;
 
 const Input = ({ addNewMessage }: { addNewMessage: Function }) => {
+	const { username } = useContext(AppContext);
 	const [text, setText] = useState("");
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,7 +62,7 @@ const Input = ({ addNewMessage }: { addNewMessage: Function }) => {
 	const handleSubmit = () => {
 		if (text.length) {
 			addNewMessage({
-				author: CONFIG.USERNAME,
+				author: username,
 				message: text,
 				timestamp: new Date().getTime(),
 			});

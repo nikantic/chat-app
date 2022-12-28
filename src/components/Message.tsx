@@ -1,8 +1,9 @@
+import { useContext } from "react";
 import styled, { css } from "styled-components";
 
 import { IMessage } from "../types/types";
 import { formatDate } from "../helpers/date";
-import CONFIG from "../data/config";
+import AppContext from "../data/context";
 
 const StyledMessage = styled.div<{ isMe: boolean }>`
 	background-color: #fff;
@@ -43,12 +44,13 @@ const StyledMessage = styled.div<{ isMe: boolean }>`
 `;
 
 const Message = ({ message, timestamp, author }: IMessage) => {
+	const { username } = useContext(AppContext);
 	const messageDate = new Date(timestamp);
 	const formattedDate = formatDate(messageDate);
 
 	return (
-		<StyledMessage isMe={CONFIG.USERNAME === author ? true : false}>
-			{CONFIG.USERNAME === author ? null : <p className="Author">{author}</p>}
+		<StyledMessage isMe={username === author ? true : false}>
+			{username === author ? null : <p className="Author">{author}</p>}
 			<p>{message}</p>
 			<p className="Date">{formattedDate}</p>
 		</StyledMessage>

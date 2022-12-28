@@ -7,10 +7,11 @@ export interface IMessage {
 export interface IConfig {
 	TOKEN: string;
 	URL: string;
-	USERNAME: string;
 	OFFLINE: boolean;
 }
 
 export interface IContext {
-	LOGOUT: Function;
+	username: string;
+	login: (username: string) => void;
+	logout: () => void;
 }
