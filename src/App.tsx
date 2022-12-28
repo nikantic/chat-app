@@ -1,11 +1,12 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
-import Home from "./components/Home";
 
+import Home from "./components/Home";
 import Login from "./components/Login";
 import CONFIG from "./data/config";
 import background from "./assets/images/bg.png";
 import AppContext from "./data/context";
+import { LOCAL_STORAGE } from "./types/types";
 
 if (CONFIG.OFFLINE) {
 	console.log("You are running app in OFFLINE mode (using local storage)");
@@ -28,19 +29,19 @@ const StyledApp = styled.div<{ isLoggedIn: boolean }>`
 
 function App() {
 	const [username, setUsername] = useState(
-		localStorage.getItem("chatAppUsername") || ""
+		localStorage.getItem(LOCAL_STORAGE.USERNAME) || ""
 	);
 	const [loggedIn, setLoggedIn] = useState(!!username);
 
 	const logout = () => {
 		setUsername("");
-		localStorage.setItem("chatAppUsername", "");
+		localStorage.setItem(LOCAL_STORAGE.USERNAME, "");
 		setLoggedIn(false);
 	};
 
 	const login = (username: string) => {
 		setUsername(username);
-		localStorage.setItem("chatAppUsername", username);
+		localStorage.setItem(LOCAL_STORAGE.USERNAME, username);
 		setLoggedIn(true);
 	};
 

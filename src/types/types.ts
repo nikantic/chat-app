@@ -15,3 +15,8 @@ export interface IContext {
 	login: (username: string) => void;
 	logout: () => void;
 }
+
+export enum LOCAL_STORAGE {
+	USERNAME = "chatAppUsername",
+	MESSAGES = "chatAppMessages",
+}

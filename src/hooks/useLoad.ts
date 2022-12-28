@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import { testMessages } from "../data/testMessages";
 import { sortMessages } from "../helpers/date";
 import { requestGET } from "../helpers/requests";
-import { IMessage } from "../types/types";
+import { IMessage, LOCAL_STORAGE } from "../types/types";
 import CONFIG from "../data/config";
 
 const useLoad = (URL: string) => {
 	const [data, setData] = useState(
 		sortMessages(
-			JSON.parse(localStorage.getItem("chatAppMessages") as string) ||
+			JSON.parse(localStorage.getItem(LOCAL_STORAGE.MESSAGES) as string) ||
 				testMessages ||
 				([] as IMessage[])
 		)

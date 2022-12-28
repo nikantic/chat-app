@@ -3,7 +3,7 @@ import styled from "styled-components";
 import List from "./List";
 import Input from "./Input";
 import useLoad from "../hooks/useLoad";
-import { IMessage } from "../types/types";
+import { IMessage, LOCAL_STORAGE } from "../types/types";
 import { requestPOST } from "../helpers/requests";
 import CONFIG from "../data/config";
 import background from "../assets/images/bg.png";
@@ -22,7 +22,7 @@ const Home = () => {
 		const newMessages: IMessage[] = [...messages.data];
 		newMessages.push(newMessage);
 		messages.setData(newMessages);
-		localStorage.setItem("chatAppMessages", JSON.stringify(newMessages));
+		localStorage.setItem(LOCAL_STORAGE.MESSAGES, JSON.stringify(newMessages));
 		if (!CONFIG.OFFLINE) {
 			requestPOST(CONFIG.URL, newMessage);
 		}
